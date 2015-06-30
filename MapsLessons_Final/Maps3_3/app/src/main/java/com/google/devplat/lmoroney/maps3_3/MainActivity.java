@@ -37,9 +37,23 @@ public class MainActivity extends ActionBarActivity implements OnMapReadyCallbac
     boolean mapReady=false;
 
 
+    static final CameraPosition HOME = CameraPosition.builder()
+            .target(new LatLng(24.938306, 121.503394))
+            .zoom(17)
+            .bearing(0)
+            .tilt(30)
+            .build();
+
+    static final CameraPosition PASADENA = CameraPosition.builder()
+            .target(new LatLng(34.143305, -118.141306))
+            .zoom(16)
+            .bearing(0)
+            .tilt(30)
+            .build();
+
     static final CameraPosition NEWYORK = CameraPosition.builder()
-            .target(new LatLng(40.784,-73.9857))
-            .zoom(21)
+            .target(new LatLng(40.712057, -74.017262))
+            .zoom(17)
             .bearing(0)
             .tilt(45)
             .build();
@@ -70,30 +84,30 @@ public class MainActivity extends ActionBarActivity implements OnMapReadyCallbac
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button btnSeattle = (Button) findViewById(R.id.btnSeattle);
+        Button btnSeattle = (Button) findViewById(R.id.btnHome);
         btnSeattle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(mapReady)
-                    flyTo(SEATTLE);
+                    flyTo(HOME);
             }
         });
 
-        Button btnDublin = (Button) findViewById(R.id.btnDublin);
+        Button btnDublin = (Button) findViewById(R.id.btnPasadena);
         btnDublin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(mapReady)
-                    flyTo(DUBLIN);
+                    flyTo(PASADENA);
             }
         });
 
-        Button btnTokyo = (Button) findViewById(R.id.btnTokyo);
+        Button btnTokyo = (Button) findViewById(R.id.btnNewYork);
         btnTokyo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(mapReady)
-                    flyTo(TOKYO);
+                    flyTo(NEWYORK);
             }
         });
 
@@ -107,7 +121,7 @@ public class MainActivity extends ActionBarActivity implements OnMapReadyCallbac
         mapReady=true;
         m_map = map;
         m_map.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
-        flyTo(NEWYORK);
+        flyTo(HOME);
 
     }
 

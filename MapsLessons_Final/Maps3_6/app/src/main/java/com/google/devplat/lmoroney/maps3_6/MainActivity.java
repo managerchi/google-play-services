@@ -26,7 +26,7 @@ import com.google.android.gms.maps.model.StreetViewPanoramaCamera;
 import com.google.android.gms.maps.model.StreetViewPanoramaLocation;
 
 
-public class MainActivity extends FragmentActivity implements OnStreetViewPanoramaReadyCallback{
+public class MainActivity extends FragmentActivity implements OnStreetViewPanoramaReadyCallback {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,16 +38,24 @@ public class MainActivity extends FragmentActivity implements OnStreetViewPanora
         streetViewPanoramaFragment.getStreetViewPanoramaAsync(this);
     }
 
-        @Override
-                 public void onStreetViewPanoramaReady(StreetViewPanorama panorama) {
+    @Override
+    public void onStreetViewPanoramaReady(StreetViewPanorama panorama) {
         // Set the panorama location on startup, when no
         // panoramas have been loaded.
 
-        panorama.setPosition(new LatLng(36.0579667,-112.1430996));
+        // Grand Canyon
+        panorama.setPosition(new LatLng(36.0579667, -112.1430996));
+
+        // Roman Colosseum
+        panorama.setPosition(new LatLng(41.8900487, 12.4926753));
+
+        // Stonehenge
+        panorama.setPosition(new LatLng(51.1788898, -1.8262146));
+
         StreetViewPanoramaCamera camera = new StreetViewPanoramaCamera.Builder()
                 .bearing(180)
                 .build();
-        panorama.animateTo(camera,10000);
+        panorama.animateTo(camera, 10000);
 
     }
 

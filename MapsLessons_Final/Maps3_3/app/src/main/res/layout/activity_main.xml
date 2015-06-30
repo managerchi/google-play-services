@@ -24,22 +24,22 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Seattle"
-                android:id="@+id/btnSeattle"
+                android:text="Home"
+                android:id="@+id/btnHome"
                 android:layout_weight="1" />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tokyo"
-                android:id="@+id/btnTokyo"
+                android:text="Pasadena, CA"
+                android:id="@+id/btnPasadena"
                 android:layout_weight="1" />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Dublin"
-                android:id="@+id/btnDublin"
+                android:text="New York"
+                android:id="@+id/btnNewYork"
                 android:layout_weight="1" />
         </LinearLayout>
 

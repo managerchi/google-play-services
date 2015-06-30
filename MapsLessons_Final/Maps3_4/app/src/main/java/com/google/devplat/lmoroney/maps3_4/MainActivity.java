@@ -40,6 +40,13 @@ public class MainActivity extends ActionBarActivity implements OnMapReadyCallbac
     GoogleMap m_map;
     boolean mapReady=false;
 
+    MarkerOptions home;
+    MarkerOptions oldHome;
+    MarkerOptions building101;
+    MarkerOptions trueYoga;
+    MarkerOptions taishingBank;
+    MarkerOptions homeTom;
+
     MarkerOptions renton;
 
     MarkerOptions kirkland;
@@ -53,6 +60,13 @@ public class MainActivity extends ActionBarActivity implements OnMapReadyCallbac
     MarkerOptions kent;
 
     MarkerOptions showare;
+
+    static final CameraPosition HOME = CameraPosition.builder()
+            .target(new LatLng(24.938486, 121.503394))
+            .zoom(11)
+            .bearing(0)
+            .tilt(90)
+            .build();
 
     static final CameraPosition SEATTLE = CameraPosition.builder()
             .target(new LatLng(47.6204,-122.2491))
@@ -71,7 +85,37 @@ public class MainActivity extends ActionBarActivity implements OnMapReadyCallbac
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-         renton = new MarkerOptions()
+        home = new MarkerOptions()
+                .position(new LatLng(24.938486, 121.503394))
+                .title("Home")
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_launcher));
+
+        oldHome = new MarkerOptions()
+                .position(new LatLng(25.028104, 121.499944))
+                .title("Old Home")
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_launcher));
+
+        building101 = new MarkerOptions()
+                .position(new LatLng(25.033720, 121.564811))
+                .title("101")
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_launcher));
+
+        trueYoga = new MarkerOptions()
+                .position(new LatLng(25.041626, 121.564047))
+                .title("True Yoga")
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_launcher));
+
+        taishingBank = new MarkerOptions()
+                .position(new LatLng(25.037573, 121.550077))
+                .title("Taishin Bank")
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_launcher));
+
+        homeTom = new MarkerOptions()
+                .position(new LatLng(25.073208, 121.469505))
+                .title("Hometom")
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_launcher));
+
+        renton = new MarkerOptions()
                 .position(new LatLng(47.489805, -122.120502))
                 .title("Renton")
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_launcher));
@@ -138,6 +182,14 @@ public class MainActivity extends ActionBarActivity implements OnMapReadyCallbac
         //MapsInitializer.initialize(getApplicationContext());
         mapReady=true;
         m_map = map;
+
+        m_map.addMarker(home);
+        m_map.addMarker(oldHome);
+        m_map.addMarker(building101);
+        m_map.addMarker(trueYoga);
+        m_map.addMarker(taishingBank);
+        m_map.addMarker(homeTom);
+
         m_map.addMarker(renton);
         m_map.addMarker(kirkland);
         m_map.addMarker(everett);
@@ -145,7 +197,7 @@ public class MainActivity extends ActionBarActivity implements OnMapReadyCallbac
         m_map.addMarker(montlake);
         m_map.addMarker(kent);
         m_map.addMarker(showare);
-        flyTo(SEATTLE);
+        flyTo(HOME);
     }
 
     private void flyTo(CameraPosition target)

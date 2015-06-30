@@ -12,8 +12,8 @@
         android:layout_height="match_parent"
         android:name="com.google.android.gms.maps.MapFragment"
         map:cameraBearing="112.5"
-        map:cameraTargetLat="40.7484"
-        map:cameraTargetLng="-73.9857"
+        map:cameraTargetLat="24.938206"
+        map:cameraTargetLng="121.503322"
         map:cameraTilt="65"
         map:cameraZoom="17"
         />
